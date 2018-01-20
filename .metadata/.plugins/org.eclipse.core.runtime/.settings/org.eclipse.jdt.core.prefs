@@ -11,6 +11,7 @@ org.eclipse.jdt.core.classpathVariable.opencv=/Users/Anton/wpilib/java/current/l
 org.eclipse.jdt.core.classpathVariable.opencv.sources=/Users/Anton/wpilib/java/current/lib/opencv-sources.jar
 org.eclipse.jdt.core.classpathVariable.wpilib=/Users/Anton/wpilib/java/current/lib/WPILib.jar
 org.eclipse.jdt.core.classpathVariable.wpilib.sources=/Users/Anton/wpilib/java/current/lib/WPILib-sources.jar
+org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
 org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
 org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8
 org.eclipse.jdt.core.compiler.compliance=1.8
