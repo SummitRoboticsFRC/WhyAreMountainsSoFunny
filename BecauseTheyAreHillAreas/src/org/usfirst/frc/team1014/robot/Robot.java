@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team1014.robot;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -9,6 +10,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team1014.robot.commands.ExampleCommand;
+import org.usfirst.frc.team1014.robot.commands.StartPosCenterScale;
+import org.usfirst.frc.team1014.robot.commands.StartPosCenterSwitch;
+import org.usfirst.frc.team1014.robot.commands.StartPosLeftScale;
+import org.usfirst.frc.team1014.robot.commands.StartPosLeftSwitch;
+import org.usfirst.frc.team1014.robot.commands.StartPosRightScale;
+import org.usfirst.frc.team1014.robot.commands.StartPosRightSwitch;
 import org.usfirst.frc.team1014.robot.subsystems.ExampleSubsystem;
 
 /**
@@ -25,6 +32,7 @@ public class Robot extends IterativeRobot {
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
+	double FMSAutoData;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -32,9 +40,16 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		
 		oi = new OI();
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
+		chooser.addObject("Start Pos Center Scale", new StartPosCenterScale(FMSAutoData));
+		chooser.addObject("Start Pos Center Switch", new StartPosCenterSwitch(FMSAutoData));
+		chooser.addObject("Start Pos Left Scale", new StartPosLeftScale(FMSAutoData));
+		chooser.addObject("Start Pos Left Switch", new StartPosLeftSwitch(FMSAutoData));
+		chooser.addObject("Start Pos Right Scale", new StartPosRightScale(FMSAutoData));
+		chooser.addObject("Start Pos Right Switch", new StartPosRightSwitch(FMSAutoData));
 		SmartDashboard.putData("Auto mode", chooser);
 	}
 
@@ -66,7 +81,24 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
+		
+		
+		/*This is where the robot gets the robot gets the data from the FMS 
+		 then turns it into 1 of 4 options from LLL(1) RRR(2) LRL(3) RLR(4)
+		*/
+		String gameData;
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		 
+		if(gameData.charAt(0) == 'L')
+		{
+			FMSAutoData = 1;
+		} if(gameData.charAt(1) == 'R'){
+			FMSAutoData = 3;
+		} if(gameData.charAt(0) == 'R'){
+			FMSAutoData = 2;
+		} if(gameData.charAt(1) == 'L'){
+			FMSAutoData = 4;
+		}
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -74,7 +106,28 @@ public class Robot extends IterativeRobot {
 		 * = new MyAutoCommand(); break; case "Default Auto": default:
 		 * autonomousCommand = new ExampleCommand(); break; }
 		 */
-
+		/*
+		//LLL
+		if (FMSAutoData == 1 ){
+			
+		} 
+		///RRR
+		if (FMSAutoData == 2){
+			
+		} 
+		//LRL
+		if (FMSAutoData == 3){
+			
+		} 
+		//RLR
+		if (FMSAutoData == 4){
+			
+		} */
+		
+		
+		//Here we would use chooser to input the starting position and choice of scale 
+		//or switch rather than to select the auto command
+		autonomousCommand = chooser.getSelected();
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null)
 			autonomousCommand.start();
