@@ -14,7 +14,7 @@ https://wpilib.screenstepslive.com/s/4485/m/13809/l/145002-installing-eclipse-c-
 
 In eclipse, select Window>Show View> Other > Git > Git Repositories
 
-Select "Clone a Git Repository" In the URI field, fill in our repo url: https://github.com/Polop23/WhyAreMountainsSoFunny
+Select "Clone a Git Repository" In the URI field, fill in our repo url: https://github.com/SummitRoboticsFRC/WhyAreMountainsSoFunny
 
 Click Next, Next again Make a note of the Directory that the repo is copied to.
 
