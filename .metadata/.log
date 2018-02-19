@@ -4252,3 +4252,14 @@ java.lang.NullPointerException
 	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
 	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
 	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.core.jobs 4 2 2018-02-19 14:57:02.456
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.NoClassDefFoundError: org/eclipse/core/runtime/Plugin$2
+	at org.eclipse.core.runtime.Plugin.savePluginPreferences(Plugin.java:385)
+	at org.eclipse.core.internal.resources.SaveManager.saveMetaInfo(SaveManager.java:1310)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1233)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1165)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:52)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
