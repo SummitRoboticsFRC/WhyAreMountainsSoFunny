@@ -11,9 +11,6 @@ public class ExampleCommand extends Command {
 	public ExampleCommand() {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.exampleSubsystem);
-		//there appear to be imports that don't work, but i'm updating so maybe that will fix things idk
-		//am i doing this correctly?
-		//edit123
 	}
 
 	// Called just before this Command runs the first time
