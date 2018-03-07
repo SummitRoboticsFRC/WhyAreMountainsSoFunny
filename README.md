@@ -20,11 +20,11 @@ Click Next, Next again Make a note of the Directory that the repo is copied to.
 
 By default it's /Users/yourname/git/WhyAreMountainsSoFunny. I recommend leaving it as is.
 
-Now click finish. Now close Eclipse, reopen and set your workspace to the directory in step 6(Users/yourname/git/LandsharksByTheSea)
+Now click finish. Now close Eclipse, reopen and set your workspace to the directory in step 6(Users/yourname/git/WhyAreMountainsSoFunny)
 
 Now select File>New>Project>WPILib Robot Java Development > Robot Java Project Enter 1014 for the team number
 
-For project name, put in WhyAreMountainsSoFunny. This is VERY IMPORTANT not to change the name, and capitalization matters, so just copy/paste this: WhyAreMountainsSoFunny
+For project name, put in BecauseTheyAreHillAreas. This is VERY IMPORTANT not to change the name, and capitalization matters, so just copy/paste this: BecauseTheyAreHillAreas
 
 Select "Command-Based Robot" and click Finish.
 
