@@ -16,6 +16,7 @@ import org.usfirst.frc.team1014.robot.commands.StartPosLeftScale;
 import org.usfirst.frc.team1014.robot.commands.StartPosLeftSwitch;
 import org.usfirst.frc.team1014.robot.commands.StartPosRightScale;
 import org.usfirst.frc.team1014.robot.commands.StartPosRightSwitch;
+import org.usfirst.frc.team1014.robot.subsystems.ExampleSubsystem;
 
 
 /**
@@ -33,6 +34,9 @@ public class Robot extends IterativeRobot {
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 	double FMSAutoData;
+    
+	
+	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -43,6 +47,8 @@ public class Robot extends IterativeRobot {
 		
 		oi = new OI();
 		
+		
+	    
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		chooser.addObject("Start Pos Center Scale", new StartPosCenterScale(FMSAutoData));
 		chooser.addObject("Start Pos Center Switch", new StartPosCenterSwitch(FMSAutoData));
