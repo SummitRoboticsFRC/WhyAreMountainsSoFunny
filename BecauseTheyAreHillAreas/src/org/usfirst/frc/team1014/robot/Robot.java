@@ -16,6 +16,7 @@ import org.usfirst.frc.team1014.robot.commands.StartPosLeftScale;
 import org.usfirst.frc.team1014.robot.commands.StartPosLeftSwitch;
 import org.usfirst.frc.team1014.robot.commands.StartPosRightScale;
 import org.usfirst.frc.team1014.robot.commands.StartPosRightSwitch;
+import org.usfirst.frc.team1014.robot.subsystems.ExampleSubsystem;
 
 
 /**
@@ -34,6 +35,7 @@ public class Robot extends IterativeRobot {
 	SendableChooser<Command> chooser = new SendableChooser<>();
 	double FMSAutoData;
 
+	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
