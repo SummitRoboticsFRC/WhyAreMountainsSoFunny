@@ -36,7 +36,7 @@ public class GoStraight extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     		accumulatedError += Robot.gyro.getAngle();
-    		adjustmentSpeed = kP * Robot.gyro.getAngle() + kI * accumulatedError;
+    		adjustmentSpeed = (kP * Robot.gyro.getAngle() + kI * accumulatedError) / 10;
     		Robot.driveTrain.tank (speedF, speedF * (1 + adjustmentSpeed));
     		if (Robot.gyro.getAngle() == 0) {
     			accumulatedError = 0;
