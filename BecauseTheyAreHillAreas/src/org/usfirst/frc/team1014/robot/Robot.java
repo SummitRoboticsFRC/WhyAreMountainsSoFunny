@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team1014.robot;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -16,6 +17,8 @@ import org.usfirst.frc.team1014.robot.commands.StartPosLeftScale;
 import org.usfirst.frc.team1014.robot.commands.StartPosLeftSwitch;
 import org.usfirst.frc.team1014.robot.commands.StartPosRightScale;
 import org.usfirst.frc.team1014.robot.commands.StartPosRightSwitch;
+import org.usfirst.frc.team1014.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team1014.robot.subsystems.PneumaticsSubsystem;
 
 
 /**
@@ -34,6 +37,10 @@ public class Robot extends IterativeRobot {
 	SendableChooser<Command> chooser = new SendableChooser<>();
 	double FMSAutoData;
 
+	public static final DriveTrain driveTrain = new DriveTrain();
+    public static final ADXRS450_Gyro gyro = new ADXRS450_Gyro();
+    public static final PneumaticsSubsystem pneumaticsSubsystem = new PneumaticsSubsystem();
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -51,6 +58,14 @@ public class Robot extends IterativeRobot {
 		chooser.addObject("Start Pos Right Scale", new StartPosRightScale(FMSAutoData));
 		chooser.addObject("Start Pos Right Switch", new StartPosRightSwitch(FMSAutoData));
 		SmartDashboard.putData("Auto mode", chooser);
+		
+		SmartDashboard.putNumber("kP Straight", 0.1);
+		SmartDashboard.putNumber("kI Straight", 0.01);
+		SmartDashboard.putNumber("kP Turn", 0.1);
+		SmartDashboard.putNumber("kI Turn", 0.01);
+
+
+
 	}
 
 	/**

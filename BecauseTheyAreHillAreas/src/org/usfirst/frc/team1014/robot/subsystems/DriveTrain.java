@@ -30,6 +30,10 @@ public class DriveTrain extends Subsystem {
     SpeedControllerGroup rightMotors;
     DifferentialDrive robotDrive;
 
+    double kP;
+    double kI;
+    double straightAdjustment;
+    
     public DriveTrain() {
 	
     	frontLeftMotor = new Talon(RobotMap.frontLeftMotor); 
@@ -39,6 +43,8 @@ public class DriveTrain extends Subsystem {
     	frontRightMotor = new Talon(RobotMap.frontRightMotor);
 	backRightMotor = new Talon(RobotMap.backRightMotor); 
 	rightMotors = new SpeedControllerGroup(frontRightMotor, backRightMotor);
+	
+	
 	
 	robotDrive = new DifferentialDrive(leftMotors, rightMotors);
 
@@ -51,7 +57,15 @@ public class DriveTrain extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    public void smth() {
+    public void tank(double left, double right) {
+    		robotDrive.tankDrive(left, right);
+    	
+    }
+    public void stop() {
+    		robotDrive.tankDrive(0, 0);
+    }
+    
+    public void turn() {
     	
     }
 }
