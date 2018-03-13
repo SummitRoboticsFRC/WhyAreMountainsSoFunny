@@ -2,6 +2,7 @@ package org.usfirst.frc.team1014.robot.commands;
 
 import org.usfirst.frc.team1014.robot.Robot;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -17,13 +18,12 @@ public class PneumaticsCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    		Robot.pneumaticsSubsystem.solenoidValves();
     		Robot.pneumaticsSubsystem.compressorStatus();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    		
+    		Robot.pneumaticsSubsystem.solenoidValves();
     }
 
     // Make this return true when this Command no longer needs to run execute()

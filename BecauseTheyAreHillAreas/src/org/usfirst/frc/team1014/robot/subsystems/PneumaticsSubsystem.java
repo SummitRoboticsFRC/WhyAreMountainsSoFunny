@@ -28,9 +28,7 @@ public class PneumaticsSubsystem extends Subsystem {
     }
     
     public void solenoidValves() {
-    	cylinder.set(DoubleSolenoid.Value.kOff);
-    	cylinder.set(DoubleSolenoid.Value.kForward);
-    	cylinder.set(DoubleSolenoid.Value.kReverse);
+    		cylinder.set(DoubleSolenoid.Value.kForward);
     }
     
     public void compressorStatus() {
