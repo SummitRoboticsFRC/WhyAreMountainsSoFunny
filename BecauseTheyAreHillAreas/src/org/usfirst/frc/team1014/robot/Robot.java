@@ -18,6 +18,7 @@ import org.usfirst.frc.team1014.robot.commands.StartPosLeftSwitch;
 import org.usfirst.frc.team1014.robot.commands.StartPosRightScale;
 import org.usfirst.frc.team1014.robot.commands.StartPosRightSwitch;
 import org.usfirst.frc.team1014.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team1014.robot.subsystems.IntakeMotors;
 import org.usfirst.frc.team1014.robot.subsystems.PneumaticsSubsystem;
 
 
@@ -33,6 +34,7 @@ public class Robot extends IterativeRobot {
 	
 	public static OI oi;
 
+
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 	double FMSAutoData;
@@ -40,6 +42,7 @@ public class Robot extends IterativeRobot {
 	public static final DriveTrain driveTrain = new DriveTrain();
     public static final ADXRS450_Gyro gyro = new ADXRS450_Gyro();
     public static final PneumaticsSubsystem pneumaticsSubsystem = new PneumaticsSubsystem();
+    public static final IntakeMotors intakeMotors = new IntakeMotors();
 	
 	/**
 	 * This function is run when the robot is first started up and should be
