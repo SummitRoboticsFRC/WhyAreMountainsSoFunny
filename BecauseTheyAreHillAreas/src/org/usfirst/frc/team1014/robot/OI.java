@@ -1,6 +1,11 @@
 package org.usfirst.frc.team1014.robot;
 
+import org.usfirst.frc.team1014.robot.commands.Intake;
+import org.usfirst.frc.team1014.robot.commands.Outtake;
+
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 
 /**
@@ -8,6 +13,23 @@ import edu.wpi.first.wpilibj.buttons.Button;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+	
+	public static XboxController xboxController0 = new XboxController(0);
+	public static XboxController xboxController1 = new XboxController(1);
+
+	// xbox left back button
+	Button button5 = new JoystickButton(xboxController1, 5);
+	// xbox right back button
+	Button button6 = new JoystickButton(xboxController1, 6);
+	
+
+	public OI () {
+		// speed is set for 1 rn but idk what it should be
+		double speed = 1;
+		button5.whenPressed(new Intake(speed));
+		button6.whenPressed(new Outtake(speed));
+	}
+	
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
 	//// joystick.
@@ -36,5 +58,4 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	
-	// hello hello
 }
