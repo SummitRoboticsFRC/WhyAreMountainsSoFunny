@@ -10,7 +10,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-
+import org.usfirst.frc.team1014.robot.commands.PneumaticsOut;
+import org.usfirst.frc.team1014.robot.commands.PneumaticsRepeat;
 import org.usfirst.frc.team1014.robot.commands.StartPosCenterScale;
 import org.usfirst.frc.team1014.robot.commands.StartPosCenterSwitch;
 import org.usfirst.frc.team1014.robot.commands.StartPosLeftScale;
@@ -34,7 +35,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
 	Command autonomousCommand;
-	SendableChooser<Command> chooser = new SendableChooser<>();
+	SendableChooser chooser;
 	double FMSAutoData;
 
 	public static final DriveTrain driveTrain = new DriveTrain();
@@ -49,15 +50,16 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		
 		oi = new OI();
+		chooser = new SendableChooser();
+		
 		
 		// chooser.addObject("My Auto", new MyAutoCommand());
-		chooser.addObject("Start Pos Center Scale", new StartPosCenterScale(FMSAutoData));
-		chooser.addObject("Start Pos Center Switch", new StartPosCenterSwitch(FMSAutoData));
-		chooser.addObject("Start Pos Left Scale", new StartPosLeftScale(FMSAutoData));
-		chooser.addObject("Start Pos Left Switch", new StartPosLeftSwitch(FMSAutoData));
-		chooser.addObject("Start Pos Right Scale", new StartPosRightScale(FMSAutoData));
-		chooser.addObject("Start Pos Right Switch", new StartPosRightSwitch(FMSAutoData));
+		chooser.addDefault("Pneumatics Out", new PneumaticsOut(3));
+		chooser.addObject("Pneumatics Repeat", new PneumaticsRepeat());
+
 		SmartDashboard.putData("Auto mode", chooser);
+
+
 		
 		SmartDashboard.putNumber("kP Straight", 0.1);
 		SmartDashboard.putNumber("kI Straight", 0.01);
@@ -142,7 +144,7 @@ public class Robot extends IterativeRobot {
 		
 		//Here we would use chooser to input the starting position and choice of scale 
 		//or switch rather than to select the auto command
-		autonomousCommand = chooser.getSelected();
+		autonomousCommand = (Command) chooser.getSelected();
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null)
 			autonomousCommand.start();
@@ -177,8 +179,9 @@ public class Robot extends IterativeRobot {
 	/**
 	 * This function is called periodically during test mode
 	 */
+
 	@Override
 	public void testPeriodic() {
-		LiveWindow.run();
+
 	}
 }

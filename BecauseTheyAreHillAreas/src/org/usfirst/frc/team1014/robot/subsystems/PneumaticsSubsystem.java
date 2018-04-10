@@ -2,6 +2,7 @@ package org.usfirst.frc.team1014.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
@@ -13,7 +14,7 @@ public class PneumaticsSubsystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-	DoubleSolenoid cylinder = new DoubleSolenoid(1, 2);
+	Solenoid cylinder = new Solenoid(0);
 	
 	
 	Compressor c = new Compressor (0);
@@ -27,13 +28,13 @@ public class PneumaticsSubsystem extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void solenoidValves() {
-    		cylinder.set(DoubleSolenoid.Value.kForward);
+    public void solenoidValves(boolean status) {
+    		cylinder.set(status);
     }
     
     public void compressorStatus() {
     	c.setClosedLoopControl(true);
-    	c.setClosedLoopControl(false);
+    	// c.setClosedLoopControl(false);
     }
 }
 

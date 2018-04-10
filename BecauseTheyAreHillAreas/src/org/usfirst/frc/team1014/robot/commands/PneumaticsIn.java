@@ -8,27 +8,31 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class PneumaticsCommand extends Command {
+public class PneumaticsIn extends Command {
 
-    public PneumaticsCommand() {
+	double time;
+	
+    public PneumaticsIn(double time) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     		requires(Robot.pneumaticsSubsystem);
+    		this.time = time;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     		Robot.pneumaticsSubsystem.compressorStatus();
+    		setTimeout(time);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    		Robot.pneumaticsSubsystem.solenoidValves();
+   		Robot.pneumaticsSubsystem.solenoidValves(false);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+       return isTimedOut();
     }
 
     // Called once after isFinished returns true
