@@ -1,47 +1,36 @@
 package org.usfirst.frc.team1014.robot.commands;
 
 import org.usfirst.frc.team1014.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class GoStraight extends Command {
+public class PumpUp extends Command {
 
-	double speedF;
-	double t;
-	
-    public GoStraight(double speedF) {
+    public PumpUp() {
+    	requires(Robot.pneumaticsSubsystem);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    		requires(Robot.driveTrain);
-    		this.speedF = speedF;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.gyro.reset();
-    	setTimeout(t);
-
-
+		Robot.pneumaticsSubsystem.compressorStatus(true);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    		
-    	Robot.driveTrain.tank (speedF, speedF);
-    		
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    		Robot.driveTrain.stop();
     }
 
     // Called when another command which requires one or more of the same

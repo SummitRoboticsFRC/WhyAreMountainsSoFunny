@@ -10,8 +10,10 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team1014.robot.commands.PIDautodrive;
 import org.usfirst.frc.team1014.robot.commands.PneumaticsOut;
 import org.usfirst.frc.team1014.robot.commands.PneumaticsRepeat;
+import org.usfirst.frc.team1014.robot.commands.PumpUp;
 import org.usfirst.frc.team1014.robot.commands.StartPosCenterScale;
 import org.usfirst.frc.team1014.robot.commands.StartPosCenterSwitch;
 import org.usfirst.frc.team1014.robot.commands.StartPosLeftScale;
@@ -53,12 +55,15 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		
 		oi = new OI();
-		chooser = new SendableChooser();
+		chooser = new SendableChooser<Command>();
 		
 		
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		chooser.addDefault("Pneumatics Out", new PneumaticsOut(3));
 		chooser.addObject("Pneumatics Repeat", new PneumaticsRepeat());
+		chooser.addObject("Pump up", new PumpUp());
+		chooser.addObject("PID straight", new PIDautodrive(6, 0.5));
+		//PIDautodrive(distance, speed)
 
 		SmartDashboard.putData("Auto mode", chooser);
 
@@ -68,7 +73,10 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("kI Straight", 0.01);
 		SmartDashboard.putNumber("kP Turn", 0.1);
 		SmartDashboard.putNumber("kI Turn", 0.01);
-
+		SmartDashboard.putNumber("Speed Damp", 0.5);
+		SmartDashboard.putNumber("Turn Damp", 0.5);
+		SmartDashboard.putNumber("Left Encoder ticks", 0);
+		SmartDashboard.putNumber("Right Encoder ticks", 0);
 
 
 	}

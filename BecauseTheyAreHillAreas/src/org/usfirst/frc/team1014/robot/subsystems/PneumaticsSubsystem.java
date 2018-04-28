@@ -1,10 +1,11 @@
 package org.usfirst.frc.team1014.robot.subsystems;
 
+import org.usfirst.frc.team1014.robot.commands.PneumaticsStay;
+
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-
 
 /**
  *
@@ -26,14 +27,15 @@ public class PneumaticsSubsystem extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new PneumaticsStay());
     }
     
     public void solenoidValves(boolean status) {
     		cylinder.set(status);
     }
     
-    public void compressorStatus() {
-    	c.setClosedLoopControl(true);
+    public void compressorStatus(boolean status) {
+    	c.setClosedLoopControl(status);
     	// c.setClosedLoopControl(false);
     }
 }

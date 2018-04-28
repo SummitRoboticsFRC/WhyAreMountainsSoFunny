@@ -1,47 +1,49 @@
 package org.usfirst.frc.team1014.robot.commands;
 
+import org.usfirst.frc.team1014.robot.OI;
 import org.usfirst.frc.team1014.robot.Robot;
+
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class GoStraight extends Command {
-
-	double speedF;
-	double t;
+public class DriveTrainControllerDrive extends Command {
 	
-    public GoStraight(double speedF) {
+	
+	double speedF;
+	double speedT;
+	
+
+    public DriveTrainControllerDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    		requires(Robot.driveTrain);
-    		this.speedF = speedF;
+    	requires(Robot.driveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.gyro.reset();
-    	setTimeout(t);
-
-
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    		
-    	Robot.driveTrain.tank (speedF, speedF);
-    		
+    	speedF = -.5*OI.xboxController0.getY();
+    	speedT = .5*OI.xboxController0.getZ();
+    	if (OI.xboxController0.getZ()<0.1&&OI.xboxController0.getZ()>-.1) {
+    		speedT =0;
+    	}
+    	Robot.driveTrain.robotDrive.arcadeDrive(speedF, speedT);
+    	//Robot.driveTrain.driveController(OI.xboxController0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    		Robot.driveTrain.stop();
     }
 
     // Called when another command which requires one or more of the same

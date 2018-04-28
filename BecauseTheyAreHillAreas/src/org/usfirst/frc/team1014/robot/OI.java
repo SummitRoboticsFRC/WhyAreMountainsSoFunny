@@ -3,6 +3,7 @@ package org.usfirst.frc.team1014.robot;
 import org.usfirst.frc.team1014.robot.commands.Intake;
 import org.usfirst.frc.team1014.robot.commands.Outtake;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -14,7 +15,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	
-	public static XboxController xboxController0 = new XboxController(0);
+	public static Joystick xboxController0 = new Joystick(0);
 	public static XboxController xboxController1 = new XboxController(1);
 
 	// xbox left back button

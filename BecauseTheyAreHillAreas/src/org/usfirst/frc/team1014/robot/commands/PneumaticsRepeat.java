@@ -14,16 +14,20 @@ public class PneumaticsRepeat extends CommandGroup {
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
+    	
+    	addParallel(new PumpUp());
+    	
     	for (int i = 0; i < 100; i++) {
-    	addSequential(new PneumaticsOut(0.5));
-    	addSequential(new PneumaticsIn(0.5));}
+	    	addSequential(new PneumaticsOut(0.51));
+	    	addSequential(new PneumaticsIn(0.51));
+    	}
   
         // To run multiple commands at the same time,
         // use addParallel()
         // e.g. addParallel(new Command1());
         //      addSequential(new Command2());
         // Command1 and Command2 will run in parallel.
-
+    	
         // A command group will require all of the subsystems that each member
         // would require.
         // e.g. if Command1 requires chassis, and Command2 requires arm,

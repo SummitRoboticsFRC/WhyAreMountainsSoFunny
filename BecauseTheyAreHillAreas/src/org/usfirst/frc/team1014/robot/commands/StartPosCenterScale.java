@@ -16,7 +16,7 @@ public class StartPosCenterScale extends CommandGroup {
     	if (FMSAutoData == 3){
     		
     	}
-    	if (FMSAutoData == 4){
+    	 if (FMSAutoData == 4){
     		
     	}
         // Add Commands here:
