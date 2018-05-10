@@ -11,8 +11,6 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 
@@ -33,11 +31,11 @@ public class DriveTrain extends Subsystem {
 
     public WPI_TalonSRX frontLeftMotor = new WPI_TalonSRX(RobotMap.frontLeftMotor);
     public WPI_TalonSRX backLeftMotor = new WPI_TalonSRX(RobotMap.backLeftMotor);
-    //public SpeedControllerGroup leftMotors = new SpeedControllerGroup(frontLeftMotor, backLeftMotor);
+    public SpeedControllerGroup leftMotors = new SpeedControllerGroup(frontLeftMotor, backLeftMotor);
     public WPI_TalonSRX frontRightMotor = new WPI_TalonSRX(RobotMap.frontRightMotor);
-    public WPI_TalonSRX backRightMotor = new WPI_TalonSRX(RobotMap.backRightMotor);
-    //public SpeedControllerGroup rightMotors = new SpeedControllerGroup(frontRightMotor, backRightMotor);	 
-    public DifferentialDrive robotDrive = new DifferentialDrive(frontLeftMotor, frontRightMotor);
+    public WPI_TalonSRX backRightMotor = new WPI_TalonSRX(RobotMap.frontRightMotor);
+    public SpeedControllerGroup rightMotors = new SpeedControllerGroup(frontRightMotor, backRightMotor);	 
+    public DifferentialDrive robotDrive = new DifferentialDrive(leftMotors, rightMotors);
 
     double kP;
     double kI;
@@ -51,9 +49,6 @@ public class DriveTrain extends Subsystem {
 	Encoder encoderRight;
 	
     public DriveTrain() {
-    	
-    	backLeftMotor.set(ControlMode.Follower, RobotMap.frontLeftMotor);
-    	backRightMotor.set(ControlMode.Follower, RobotMap.frontRightMotor);
 	
 	
     	encoderLeft = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
