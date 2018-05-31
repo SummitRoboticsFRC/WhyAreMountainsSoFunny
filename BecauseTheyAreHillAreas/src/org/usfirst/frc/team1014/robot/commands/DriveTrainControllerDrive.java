@@ -5,6 +5,7 @@ import org.usfirst.frc.team1014.robot.Robot;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -15,7 +16,7 @@ public class DriveTrainControllerDrive extends Command {
 	double speedF;
 	double speedT;
 	
-
+   
     public DriveTrainControllerDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -28,12 +29,15 @@ public class DriveTrainControllerDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	speedF = -.5*OI.xboxController0.getY();
-    	speedT = .5*OI.xboxController0.getZ();
+    	speedF = -1*OI.xboxController0.getY();
+    	speedT = 1*OI.xboxController0.getZ();
     	if (OI.xboxController0.getZ()<0.1&&OI.xboxController0.getZ()>-.1) {
     		speedT =0;
     	}
     	Robot.driveTrain.robotDrive.arcadeDrive(speedF, speedT);
+    	//System.out.println( "left: " + Robot.driveTrain.leftTicks() );
+    	//System.out.println( "right: " + Robot.driveTrain.rightTicks() );
+    	//Robot.driveTrain.putEncoderTicks();
     	//Robot.driveTrain.driveController(OI.xboxController0);
     }
 

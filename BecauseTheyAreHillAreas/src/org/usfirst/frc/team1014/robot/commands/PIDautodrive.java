@@ -37,7 +37,7 @@ public class PIDautodrive extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	totalleftticks = 0;
-    	Robot.driveTrain.resetEncoders();
+    	//Robot.driveTrain.resetEncoders();
     	Robot.driveTrain.tank(leftspeed, rightspeed);
     	
     	
@@ -46,7 +46,7 @@ public class PIDautodrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.putEncoderTicks();
+    	/*Robot.driveTrain.putEncoderTicks();
     	if (Robot.driveTrain.leftTicks() >= 300) {
     		error = Robot.driveTrain.leftTicks() - Robot.driveTrain.rightTicks();
     		rightspeed += error * kP;
@@ -54,7 +54,7 @@ public class PIDautodrive extends Command {
     		
     		totalleftticks += Robot.driveTrain.leftTicks();
     		Robot.driveTrain.resetEncoders();
-    	}
+    	}*/
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -65,7 +65,7 @@ public class PIDautodrive extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.driveTrain.stop();
-    	Robot.driveTrain.resetEncoders();
+    	//Robot.driveTrain.resetEncoders();
     }
 
     // Called when another command which requires one or more of the same
