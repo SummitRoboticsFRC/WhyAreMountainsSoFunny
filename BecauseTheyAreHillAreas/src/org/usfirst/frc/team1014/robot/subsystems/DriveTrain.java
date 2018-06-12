@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 /**
  *
@@ -38,7 +39,6 @@ public class DriveTrain extends Subsystem {
     public WPI_TalonSRX backRightMotor = new WPI_TalonSRX(RobotMap.backRightMotor);
     //public SpeedControllerGroup rightMotors = new SpeedControllerGroup(frontRightMotor, backRightMotor);	 
     public DifferentialDrive robotDrive = new DifferentialDrive(backLeftMotor, backRightMotor);
-    
 
     double kP;
     double kI;
@@ -62,7 +62,7 @@ public class DriveTrain extends Subsystem {
     	backRightMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
     	backLeftMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
 	
-    	/*encoderLeft = new Encoder(1, 2, false, Encoder.EncodingType.k4X);
+    	/*encoderLeft = new Encoder(1, 2, false, Encoder.EncodingType.k4X); 
     	encoderRight = new Encoder(3, 4, false, Encoder.EncodingType.k4X);
     	encoderLeft.setMaxPeriod(10);
     	encoderRight.setMaxPeriod(10);*/
@@ -107,13 +107,11 @@ public class DriveTrain extends Subsystem {
     }
     
     //below are encoder methods
-   /* public void resetEncoders() {
-    	encoderLeft.reset();
-    	encoderRight.reset();
-    	SmartDashboard.putNumber("Left Encoder ticks", 0);
-    	SmartDashboard.putNumber("Right Encoder ticks", 0);
+    public void resetEncoders() {
+    	Robot.driveTrain.backRightMotor.setSelectedSensorPosition(0, 0, 10);
+		Robot.driveTrain.backLeftMotor.setSelectedSensorPosition(0, 0, 10);
     }
-    
+    /*
     public double leftTicks() {
     	return (double)encoderLeft.get();
     }

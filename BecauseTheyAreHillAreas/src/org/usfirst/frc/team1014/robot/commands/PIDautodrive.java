@@ -15,6 +15,9 @@ public class PIDautodrive extends Command {
 	double kP;
 	double error;
 	
+	double REE;
+	double LEE;
+	
 	int totalleftticks;
 	int objectiveticks;
 	int leftticks;
@@ -46,15 +49,19 @@ public class PIDautodrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	/*Robot.driveTrain.putEncoderTicks();
-    	if (Robot.driveTrain.leftTicks() >= 300) {
-    		error = Robot.driveTrain.leftTicks() - Robot.driveTrain.rightTicks();
+    	//Robot.driveTrain.putEncoderTicks();
+    	REE = Robot.driveTrain.backRightMotor.getSelectedSensorPosition(0);
+		LEE = Robot.driveTrain.backLeftMotor.getSelectedSensorPosition(0);
+    	if (LEE >= 300) {
+    		error = LEE - REE;
     		rightspeed += error * kP;
     		Robot.driveTrain.tank(leftspeed, rightspeed);
     		
-    		totalleftticks += Robot.driveTrain.leftTicks();
-    		Robot.driveTrain.resetEncoders();
-    	}*/
+    		totalleftticks += LEE;
+    		Robot.driveTrain.backRightMotor.setSelectedSensorPosition(0, 0, 10);
+    		Robot.driveTrain.backLeftMotor.setSelectedSensorPosition(0, 0, 10);
+    		
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
