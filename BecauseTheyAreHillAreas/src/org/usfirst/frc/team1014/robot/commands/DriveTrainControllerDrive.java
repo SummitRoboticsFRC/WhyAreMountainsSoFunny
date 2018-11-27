@@ -35,13 +35,10 @@ public class DriveTrainControllerDrive extends Command {
     		speedT =0;
     	}
     	Robot.driveTrain.robotDrive.arcadeDrive(speedF, speedT);
+    }
     	//System.out.println( "left: " + Robot.driveTrain.leftTicks() );
     	//System.out.println( "right: " + Robot.driveTrain.rightTicks() );
-    	//Robot.driveTrain.putEncoderTicks();
-    	//Robot.driveTrain.driveController(OI.xboxController0);
-    }
-
-    // Make this return true when this Command no longer needs to run execute()
+    	//Robot.driveTrain.putEncoderhis Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;
     }
@@ -52,6 +49,10 @@ public class DriveTrainControllerDrive extends Command {
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
-    protected void interrupted() {
+    //protected void interruptedTicks();
+    	//Robot.driveTrain.driveController(OI.xboxController0);
+    {
+
+    // Make this return true when t) {
     }
 }

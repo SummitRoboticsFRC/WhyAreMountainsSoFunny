@@ -17,8 +17,8 @@ public class IntakeMotors extends Subsystem {
     // here. Call these from Commands.
 
 	public IntakeMotors () {
-		intakeLeft = new Talon(RobotMap.intakeLeft);
-		intakeRight = new Talon(RobotMap.intakeRight);
+		//intakeLeft = new Talon(RobotMap.intakeLeft);
+		//intakeRight = new Talon(RobotMap.intakeRight);
 	}
 	
     public void initDefaultCommand() {

@@ -73,12 +73,12 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("kI Straight", 0.01);
 		SmartDashboard.putNumber("kP Turn", 0.1);
 		SmartDashboard.putNumber("kI Turn", 0.01);
-		SmartDashboard.putNumber("Speed Damp", 0.5);
-		SmartDashboard.putNumber("Turn Damp", 0.5);
+		SmartDashboard.putNumber("Speed Damp", 0.01);
+		SmartDashboard.putNumber("Turn Damp", 0.01);
 		SmartDashboard.putNumber("Left Encoder ticks", 0);
 		SmartDashboard.putNumber("Right Encoder ticks", 0);
-		SmartDashboard.putNumber("RE", driveTrain.backRightMotor.getSelectedSensorPosition(0));
-		SmartDashboard.putNumber("LE", driveTrain.backLeftMotor.getSelectedSensorPosition(0));
+		//SmartDashboard.putNumber("RE", driveTrain.backRightMotor.getSelectedSensorPosition(0));
+		//SmartDashboard.putNumber("LE", driveTrain.backLeftMotor.getSelectedSensorPosition(0));
 		//SmartDashboard.putNumber("LEE");
 		//SmartDashboard.putNumber("REE");
 		//SmartDashboard.putNumber("Distance per pulse", 1);
@@ -192,11 +192,11 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		double REE = driveTrain.backRightMotor.getSelectedSensorPosition(0);
-		double LEE = driveTrain.backLeftMotor.getSelectedSensorPosition(0);
+		//double REE = driveTrain.backRightMotor.getSelectedSensorPosition(0);
+		//double LEE = driveTrain.backLeftMotor.getSelectedSensorPosition(0);
 	
-		SmartDashboard.putNumber("REE", REE);
-		SmartDashboard.putNumber("LEE",LEE);
+		//SmartDashboard.putNumber("REE", REE);
+		//SmartDashboard.putNumber("LEE",LEE);
 	}
 
 	/**

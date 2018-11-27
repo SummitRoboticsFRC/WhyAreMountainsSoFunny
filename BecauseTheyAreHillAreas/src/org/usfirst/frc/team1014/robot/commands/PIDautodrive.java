@@ -41,7 +41,7 @@ public class PIDautodrive extends Command {
     protected void initialize() {
     	totalleftticks = 0;
     	//Robot.driveTrain.resetEncoders();
-    	Robot.driveTrain.tank(leftspeed, rightspeed);
+    	//Robot.driveTrain.tank(leftspeed, rightspeed);
     	
     	
     	
@@ -50,16 +50,16 @@ public class PIDautodrive extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//Robot.driveTrain.putEncoderTicks();
-    	REE = Robot.driveTrain.backRightMotor.getSelectedSensorPosition(0);
-		LEE = Robot.driveTrain.backLeftMotor.getSelectedSensorPosition(0);
+    	//REE = Robot.driveTrain.backRightMotor.getSelectedSensorPosition(0);
+		//LEE = Robot.driveTrain.backLeftMotor.getSelectedSensorPosition(0);
     	if (LEE >= 300) {
     		error = LEE - REE;
     		rightspeed += error * kP;
-    		Robot.driveTrain.tank(leftspeed, rightspeed);
+    		//Robot.driveTrain.tank(leftspeed, rightspeed);
     		
     		totalleftticks += LEE;
-    		Robot.driveTrain.backRightMotor.setSelectedSensorPosition(0, 0, 10);
-    		Robot.driveTrain.backLeftMotor.setSelectedSensorPosition(0, 0, 10);
+    		//Robot.driveTrain.backRightMotor.setSelectedSensorPosition(0, 0, 10);
+    		//Robot.driveTrain.backLeftMotor.setSelectedSensorPosition(0, 0, 10);
     		
     	}
     }
@@ -71,7 +71,7 @@ public class PIDautodrive extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveTrain.stop();
+    	//Robot.driveTrain.stop();
     	//Robot.driveTrain.resetEncoders();
     }
 

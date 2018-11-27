@@ -17,8 +17,8 @@ public class LiftMotors extends PIDSubsystem {
 	// Initialize your subsystem here
     public LiftMotors() {
     		super("LiftMotors", 1.0, 0.0, 0.0);
-    		liftMotor = new VictorSP(RobotMap.liftMotor);
-    		liftEncoder = new Encoder (RobotMap.liftEncoderChannelA, RobotMap.liftEncoderChannelB)
+    		//liftMotor = new VictorSP(RobotMap.liftMotor);
+    		//liftEncoder = new Encoder (RobotMap.liftEncoderChannelA, RobotMap.liftEncoderChannelB)
 ;
     		getPIDController().setContinuous(false);
     		// setSetpoint(something);
