@@ -200,8 +200,8 @@ public class DriveTrain extends Subsystem {
 	turnDamp = SmartDashboard.getNumber("Turn Damp", 0.01);
 	speedDamp = SmartDashboard.getNumber("Speed Damp", 0.01);
     	
-    speedF = -1*speedDamp*xboxController.getY(Hand.kRight);
-    speedT = -1*turnDamp*xboxController.getX(Hand.kLeft);
+    speedF = -0.5*speedDamp*xboxController.getY(Hand.kRight);
+    speedT = -0.5*turnDamp*xboxController.getX(Hand.kLeft);
     
 	robotDrive.arcadeDrive(speedF, speedT, true);
 
@@ -212,8 +212,8 @@ public class DriveTrain extends Subsystem {
     turnDamp = SmartDashboard.getNumber("Turn Damp", 0.01);
     speedDamp = SmartDashboard.getNumber("Speed Damp", 0.01);
     
-    speedF = -1*speedDamp*joystick.getY();
-    speedT = -1*turnDamp*joystick.getZ();
+    speedF = -0.5*speedDamp*joystick.getY();
+    speedT = -0.5*turnDamp*joystick.getZ();
     
     
     robotDrive.arcadeDrive(speedF, speedT, true);
