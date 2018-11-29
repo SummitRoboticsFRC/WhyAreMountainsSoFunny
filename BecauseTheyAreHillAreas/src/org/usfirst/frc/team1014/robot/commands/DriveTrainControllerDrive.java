@@ -29,12 +29,15 @@ public class DriveTrainControllerDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	speedF = -1*OI.xboxController0.getY();
+    	/*speedF = -1*OI.xboxController0.getY();
     	speedT = 1*OI.xboxController0.getZ();
     	if (OI.xboxController0.getZ()<0.1&&OI.xboxController0.getZ()>-.1) {
     		speedT =0;
     	}
-    	Robot.driveTrain.robotDrive.arcadeDrive(speedF, speedT);
+	*/
+    	//Robot.driveTrain.robotDrive.arcadeDrive(speedF, speedT);
+	Robot.driveTrain.robotDrive.driveWithController(xboxController);
+
     }
     	//System.out.println( "left: " + Robot.driveTrain.leftTicks() );
     	//System.out.println( "right: " + Robot.driveTrain.rightTicks() );
