@@ -77,6 +77,8 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Turn Damp", 0.01);
 		SmartDashboard.putNumber("Left Encoder ticks", 0);
 		SmartDashboard.putNumber("Right Encoder ticks", 0);
+		SmartDashboard.putNumber("speedF", driveTrain.driveWithController.speedF);
+		SmartDashboard.putNumber("speedT", driveTrain.driveWithController,speedT);
 		//SmartDashboard.putNumber("RE", driveTrain.backRightMotor.getSelectedSensorPosition(0));
 		//SmartDashboard.putNumber("LE", driveTrain.backLeftMotor.getSelectedSensorPosition(0));
 		//SmartDashboard.putNumber("LEE");
