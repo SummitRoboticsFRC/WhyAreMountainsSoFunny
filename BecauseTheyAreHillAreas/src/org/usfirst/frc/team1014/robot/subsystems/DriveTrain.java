@@ -195,7 +195,7 @@ public class DriveTrain extends Subsystem {
      * 0){ return true; }else{ return false; } }
      */
     //TODO: funtions dont start with capitals
-    public void DriveWithController(XboxController xboxController) {
+    public void driveWithController(XboxController xboxController) {
 
 	turnDamp = SmartDashboard.getNumber("Turn Damp", 0.01);
 	speedDamp = SmartDashboard.getNumber("Speed Damp", 0.01);
